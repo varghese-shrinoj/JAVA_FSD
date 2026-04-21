@@ -1,21 +1,24 @@
 package day3interface;
 
-
 public class AccountMain {
 
 public static void main(String[] args) {
 
-Person smith = new Person("Smith", 25);
-Person kathy = new Person("Kathy", 22);
+Person smith = new Person("Smith", 30);
+Person kathy = new Person("Kathy", 28);
 
-Account acc1 = new Account(smith, 2000);
-Account acc2 = new Account(kathy, 3000);
+// Savings Account
+SavingsAccount sAcc = new SavingsAccount(smith, 2000);
 
-acc1.deposit(2000);
-acc2.withdraw(2000);
+// Current Account
+CurrrentAccount cAcc = new CurrrentAccount(kathy, 3000);
 
-System.out.println(acc1);
-System.out.println();
-System.out.println(acc2);
+sAcc.deposit(2000);
+sAcc.withdraw(1000);
+
+cAcc.withdraw(3500);
+
+System.out.println("Savings Balance: " + sAcc.getBalance());
+System.out.println("Current Balance: " + cAcc.getBalance());
 }
 }
